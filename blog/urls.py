@@ -1,8 +1,12 @@
 from django.urls import path
 from . import views
+from blog.views import HomePage
+from blog.views import PostPage
 urlpatterns = [
     path('', views.post_list, name='post_list'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
+    path('index', HomePage.as_view(),name="index"),
+    path('i_post/<int:pk>/', PostPage.as_view(), name='i_post'),
 ]

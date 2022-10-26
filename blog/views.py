@@ -4,6 +4,9 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.views.generic.base import TemplateView
+from django.views.generic.detail import DetailView
+
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -39,3 +42,11 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+class HomePage(TemplateView):
+    template_name = "index.html"
+
+class PostPage(DetailView):
+    model = Post
+    template_name = "post.html"
+

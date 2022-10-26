@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{%block content%}
+<!-- begin l -->
+<div class="l">
+    <!-- begin l-col1 -->
+    <div class="l-col1">
+        <!-- begin entry entry_big -->
+        <div class="entry entry_big">
+            <div class="entry__pic">
+                <img src="http://placekitten.com/620/337" alt="">
+                <div class="entry__exclusive">ЭКСКЛЮЗИВ</div>
+            </div>
+            <div class="entry__content">
+                <div class="entry__meta">
+                    <a href="#" class="entry__categ">НОВОСТИ</a>
+                    <a href="#" class="entry__location"><i></i>Москва</a>
+                    <a href="#" class="comments"><i></i>25</a>
+                    <div class="date"><i></i>{{ post.published_date }}</div>
+                </div>
+                <h2 class="entry__title"><a href="#">{{ post.title }}</a></h2>
+                <div class="entry__text">
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            </div>
+        </div><!-- end entry entry__big -->
+    </div><!-- end l-col1 -->
+</div><!-- end l -->
+{%endblock%}
